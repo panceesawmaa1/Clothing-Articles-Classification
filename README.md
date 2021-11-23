@@ -3,7 +3,9 @@
 ### Table of contents
 
 * [Description](#Description)
+  
 * [Minimum Requirements](#Minimum Requirements)
+  
 * [Setup Instructions](#Setup Instructions)
 
 ### Description
