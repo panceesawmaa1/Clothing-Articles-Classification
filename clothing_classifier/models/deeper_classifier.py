@@ -13,7 +13,7 @@ class DeeperClassifier(BaseModel):
     """
     DeeperClassifier class.
     This class inherits from BaseModel and implements its methods.
-    The model architecture can be described as a 9-layer CNN.
+    The model architecture can be described as a 24-layer CNN.
     """
 
     def __init__(self):
@@ -34,7 +34,7 @@ class DeeperClassifier(BaseModel):
         l_2 = l2(0.001)
         self.model: Sequential = Sequential([
             Conv2D(64, kernel_size=(3, 3), activation='relu', padding='same', kernel_regularizer=l_2,
-                   input_shape=[28, 28, 1], name='input_layer'),
+                   input_shape=[28, 28, 1]),
             BatchNormalization(),
 
             Conv2D(64, kernel_size=(3, 3), activation='relu', kernel_regularizer=l_2),

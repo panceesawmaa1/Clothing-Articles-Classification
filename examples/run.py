@@ -35,8 +35,8 @@ def main():
     valid_split = .2
 
     # Model creation, of type BaseLineClassifier
-    model = BaseLineClassifier()
-    # model = Classifier()
+    # model = BaseLineClassifier()
+    model = Classifier()
     # model = DeeperClassifier()
 
     # Register losses

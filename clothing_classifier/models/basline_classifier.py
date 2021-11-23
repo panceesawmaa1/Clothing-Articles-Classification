@@ -31,7 +31,7 @@ class BaseLineClassifier(BaseModel):
 
     def build(self) -> None:
         self.model: Sequential = Sequential([
-            Conv2D(32, (5, 5), padding="same", input_shape=[28, 28, 1], name='input_layer'),
+            Conv2D(32, (5, 5), padding="same", input_shape=[28, 28, 1]),
             MaxPool2D((2, 2)),
             Conv2D(64, (5, 5), padding="same"),
             MaxPool2D((2, 2)),

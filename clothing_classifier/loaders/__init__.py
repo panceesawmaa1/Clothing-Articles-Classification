@@ -1,0 +1,1 @@
+from clothing_classifier.loaders import mnist_loader

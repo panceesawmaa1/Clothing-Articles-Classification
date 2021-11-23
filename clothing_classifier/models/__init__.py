@@ -1,0 +1,4 @@
+from clothing_classifier.models import base_model
+from clothing_classifier.models import basline_classifier
+from clothing_classifier.models import classifier
+from clothing_classifier.models import deeper_classifier
