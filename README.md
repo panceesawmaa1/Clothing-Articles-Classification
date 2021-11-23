@@ -4,9 +4,9 @@
 
 - [Description](#Description)
 
-- [Minimum Requirements](#Minimum Requirements)
+- [Minimum Requirements](#Minimum-Requirements)
 
-- [Setup Instructions](#Setup Instructions)
+- [Setup Instructions](#Setup-Instructions)
 
 ### Description
 
@@ -60,11 +60,11 @@ _________________________________________________________________
 
 **NOTE:**
 
-Convolutions - FLOPs = 2x Number of Kernel x Kernel Shape x Output Shape
+>Convolutions - FLOPs = 2x Number of Kernel x Kernel Shape x Output Shape
 
-Fully Connected Layers - FLOPs = 2x Input Size x Output Size
+>Fully Connected Layers - FLOPs = 2x Input Size x Output Size
 
-1 MAC = 2 FLOPs
+>1 MAC = 2 FLOPs
 
 * Layer ```conv2d``` FLOps = 2 * 32 * (5 * 5) * (28 * 28) = 1,254,400 FLOPs
 * Layer ```conv2d_1``` FLOPs = 2 * 64 * (5 * 5 * 64) * (14 * 14) = 40,140,800 FLOPs
