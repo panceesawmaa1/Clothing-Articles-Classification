@@ -25,7 +25,7 @@ Metric used:
 
 Models implemented:
 
-###1. ```BaseLineClassifier```
+### 1. ```BaseLineClassifier```
 A simple basline CNN classifier, consisting of 7 layers,
 ```Conv2D```, ```MaxPool2D```, ```Flatten``` and ```Dense``` layers. This model obtained **91.6%** testing accuracy
 after training with 30 epochs.
@@ -76,7 +76,7 @@ for ```convolution``` and ```fully-connected``` layers only.**
 
 
 
-###2. ```Classifier```
+### 2. ```Classifier```
 A simple CNN classifier with ```Dropout``` regularization, consisting of 9 layers,
 ```Conv2D```, ```MaxPool2D```, ```Flatten```, ```Dropout``` and ```Dense``` layers. This model obtained **92.5%**
 testing accuracy after training with 30 epochs.
@@ -116,11 +116,11 @@ _________________________________________________________________
 
 **NOTE:**
 
-Convolutions - FLOPs = 2x Number of Kernel x Kernel Shape x Output Shape
+>Convolutions - FLOPs = 2x Number of Kernel x Kernel Shape x Output Shape
 
-Fully Connected Layers - FLOPs = 2x Input Size x Output Size
+>Fully Connected Layers - FLOPs = 2x Input Size x Output Size
 
-1 MAC = 2 FLOPs
+>1 MAC = 2 FLOPs
 
 * Layer ```conv2d``` FLOps = 2 * 32 * (5 * 5) * (28 * 28) = 1,254,400 FLOPs
 * Layer ```conv2d_1``` FLOPs = 2 * 64 * (5 * 5 * 64) * (14 * 14) = 40,140,800 FLOPs
@@ -130,7 +130,7 @@ Fully Connected Layers - FLOPs = 2x Input Size x Output Size
 **This model performs 47,838,208 FLOPs (~46 MFLOPs), 23,919,104 MACs (~23 Mega-MACs)
 for ```convolution``` and ```fully-connected``` layers only.**
 
-###3. ```DeeperClassifier```
+### 3. ```DeeperClassifier```
    A deeper CNN classifier with ```Dropout``` and ```l2```
   regularizations, consisting of 24 layers,
   ```Conv2D```, ```MaxPool2D```, ```BatchNormalization```, ```Flatten```,
@@ -200,11 +200,11 @@ _________________________________________________________________
 
 **NOTE:**
 
-Convolutions - FLOPs = 2x Number of Kernel x Kernel Shape x Output Shape
+>Convolutions - FLOPs = 2x Number of Kernel x Kernel Shape x Output Shape
 
-Fully Connected Layers - FLOPs = 2x Input Size x Output Size
+>Fully Connected Layers - FLOPs = 2x Input Size x Output Size
 
-1 MAC = 2 FLOPs
+>1 MAC = 2 FLOPs
 
 * Layer ```conv2d``` FLOps = 2 * 64 * (3 * 3) * (28 * 28) = 903,168 FLOPs
 * Layer ```conv2d_1``` FLOPs = 2 * 64 * (3 * 3 * 64) * (26 * 26) = 49,840,128 FLOPs
