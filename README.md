@@ -66,12 +66,12 @@ _________________________________________________________________
 
 >1 MAC = 2 FLOPs
 
-* Layer ```conv2d``` FLOps = 2 * 32 * (5 * 5) * (28 * 28) = 1,254,400 FLOPs
-* Layer ```conv2d_1``` FLOPs = 2 * 64 * (5 * 5 * 64) * (14 * 14) = 40,140,800 FLOPs
+* Layer ```conv2d``` FLOps = 2 * 32 * 5 * 5 * 28 * 28 = 1,254,400 FLOPs
+* Layer ```conv2d_1``` FLOPs = 2 * 64 * 5 * 5 * 32 * 14 * 14 = 20,070,400 FLOPs
 * Layer ```dense``` FLOPs = 2 * 3136 * 1024 = 6,422,528 FLOPs
 * Layer ```output_layer``` FLOPs = 2 * 1024 * 10 = 20,480 FLOPs
 
-**This model performs 47,838,208 FLOPs (~46 MFLOPs), 23,919,104 MACs (~23 Mega-MACs) 
+**This model performs 27,767,808 FLOPs (~27 MFLOPs), 13,883,904 MACs (~13 Mega-MACs) 
 for ```convolution``` and ```fully-connected``` layers only.**
 
 
@@ -122,13 +122,14 @@ _________________________________________________________________
 
 >1 MAC = 2 FLOPs
 
-* Layer ```conv2d``` FLOps = 2 * 32 * (5 * 5) * (28 * 28) = 1,254,400 FLOPs
-* Layer ```conv2d_1``` FLOPs = 2 * 64 * (5 * 5 * 64) * (14 * 14) = 40,140,800 FLOPs
+* Layer ```conv2d``` FLOps = 2 * 32 * 5 * 5 * 28 * 28 = 1,254,400 FLOPs
+* Layer ```conv2d_1``` FLOPs = 2 * 64 * 5 * 5 * 32 * 14 * 14 = 20,070,400 FLOPs
 * Layer ```dense``` FLOPs = 2 * 3136 * 1024 = 6,422,528 FLOPs
 * Layer ```output_layer``` FLOPs = 2 * 1024 * 10 = 20,480 FLOPs
 
-**This model performs 47,838,208 FLOPs (~46 MFLOPs), 23,919,104 MACs (~23 Mega-MACs)
+**This model performs 27,767,808 FLOPs (~27 MFLOPs), 13,883,904 MACs (~13 Mega-MACs) 
 for ```convolution``` and ```fully-connected``` layers only.**
+
 
 ### 3. ```DeeperClassifier```
    A deeper CNN classifier with ```Dropout``` and ```l2```
@@ -206,25 +207,27 @@ _________________________________________________________________
 
 >1 MAC = 2 FLOPs
 
-* Layer ```conv2d``` FLOps = 2 * 64 * (3 * 3) * (28 * 28) = 903,168 FLOPs
-* Layer ```conv2d_1``` FLOPs = 2 * 64 * (3 * 3 * 64) * (26 * 26) = 49,840,128 FLOPs
-* Layer ```conv2d_2``` FLOPs = 2 * 128 * (3 * 3 * 128) * (13 * 13) = 49,840,128 FLOPs
-* Layer ```conv2d_3``` FLOPs = 2 * 128 * (3 * 3 * 128) * (11 * 11) = 35,684,352 FLOPs
-* Layer ```conv2d_4``` FLOPs = 2 * 256 * (3 * 3 * 256) * (5 * 5) = 29,491,200 FLOPs
-* Layer ```conv2d_5``` FLOPs = 2 * 256 * (3 * 3 * 256) * (3 * 3) = 10,616,832 FLOPs
+* Layer ```conv2d``` FLOps = 2 * 64 * 3 * 3 * 28 * 28 = 778,752 FLOPs
+* Layer ```conv2d_1``` FLOPs = 2 * 64 * 3 * 3 * 64 * 26 * 26 =  49,840,128 FLOPs
+* Layer ```conv2d_2``` FLOPs = 2 * 128 * 3 * 3 * 64 * 13 * 13 = 24,920,064 FLOPs
+* Layer ```conv2d_3``` FLOPs = 2 * 128 * 3 * 3 * 128 * 11 * 11 = 35,684,352 FLOPs
+* Layer ```conv2d_4``` FLOPs = 2 * 256 * 3 * 3 * 128 * 5 * 5 =  14,745,600 FLOPs
+* Layer ```conv2d_5``` FLOPs = 2 * 256 * 3 * 3 * 256 * 3 * 3 = 10,616,832 FLOPs
 * Layer ```dense``` FLOPs = 2 * 256 * 1024 = 524,288 FLOPs
 * Layer ```dense_1``` FLOPs = 2 * 1024 * 512 = 1,048,576 FLOPs
 * Layer ```output_layer``` FLOPs = 2 * 512 * 10 = 10,240 FLOPs
 
-**This model performs 177,958,912 FLOPs (~170 MFLOPs), 88,979,456 MACs (~85 Mega-MACs)
+**This model performs  138,168,832 FLOPs (~132 MFLOPs), 69,084,416 MACs (~66 Mega-MACs)
 for ```convolution``` and ```fully-connected``` layers only.**
 
 #### Conclusion
   
-* Number of trainable parameters represented in ```DeeperClassifier```
-is way less than ```Classifier``` and ```BaselineClassifier```, which
-  this means that the number of FLOPs for ```DeeperClassifier``` is less
-  than that of the other two models. 
+* Increasing the model size represented in ```DeeperClassifier``` made the model perform 
+  ~5x FLOPs (for ```convolution``` and ```fully-connected``` layers only) more than model
+  represented in ```Classifier``` (which is less deep) where ```DeeperClassifier``` performs 
+  +0.65% better than ```Classifier``` in terms of testing accuracy. We can go with the
+  simpler model to decrease number of FLOPs performed by the model, especially 
+  that the accuracy enhancement is not that much significant.
  
 * The ```convolution``` layers are more expensive than ```fully-connected``` ones
 from this experiment.
