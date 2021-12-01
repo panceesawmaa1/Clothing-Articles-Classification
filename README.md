@@ -220,14 +220,11 @@ _________________________________________________________________
 for ```convolution``` and ```fully-connected``` layers only.**
 
 #### Conclusion
-
-* Increasing the model size represented in ```DeeperClassifier``` made the model
-perform **3.6X FLOPs** (for ```convolution``` and ```fully-connected``` layers only)
-more than model represented in ```Classifier``` (which is less deep) 
-where ```DeeperClassifier``` performs **+0.65%** better than ```Classifier```
-in terms of testing accuracy. We can go with the simpler model to decrease 
-number of FLOPs performed by the model, especially that the accuracy enhancement 
-  is not that much significant.
+  
+* Number of trainable parameters represented in ```DeeperClassifier```
+is way less than ```Classifier``` and ```BaselineClassifier```, which
+  this means that the number of FLOPs for ```DeeperClassifier``` is less
+  than that of the other two models. 
  
 * The ```convolution``` layers are more expensive than ```fully-connected``` ones
 from this experiment.
