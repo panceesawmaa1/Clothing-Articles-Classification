@@ -16,7 +16,7 @@ class BaseLineClassifier(BaseModel):
     """
 
     def __init__(self):
-        super().__init__()
+        super().__init__("baseline")
         self.accuracy = 0
         self.loss = 0
 
@@ -31,9 +31,9 @@ class BaseLineClassifier(BaseModel):
 
     def build(self) -> None:
         self.model: Sequential = Sequential([
-            Conv2D(32, (5, 5), padding="same", input_shape=[28, 28, 1]),
+            Conv2D(32, (5, 5), padding="same", input_shape=[28, 28, 1], name='input_layer'),
             MaxPool2D((2, 2)),
-            Conv2D(64, (5, 5), padding="same"),
+            Conv2D(64, (5, 5), padding="same", name='last_conv2d'),
             MaxPool2D((2, 2)),
             Flatten(),
             Dense(1024, activation='relu'),
@@ -65,3 +65,4 @@ class BaseLineClassifier(BaseModel):
 
     def summary(self) -> None:
         self.model.summary()
+

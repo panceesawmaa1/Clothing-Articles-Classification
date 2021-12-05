@@ -17,7 +17,7 @@ class DeeperClassifier(BaseModel):
     """
 
     def __init__(self):
-        super().__init__()
+        super().__init__("deeperclassifier")
         self.accuracy = 0
         self.loss = 0
 
@@ -34,7 +34,7 @@ class DeeperClassifier(BaseModel):
         l_2 = l2(0.001)
         self.model: Sequential = Sequential([
             Conv2D(64, kernel_size=(3, 3), activation='relu', padding='same', kernel_regularizer=l_2,
-                   input_shape=[28, 28, 1]),
+                   input_shape=[28, 28, 1], name='input_layer'),
             BatchNormalization(),
 
             Conv2D(64, kernel_size=(3, 3), activation='relu', kernel_regularizer=l_2),
@@ -53,7 +53,7 @@ class DeeperClassifier(BaseModel):
             Conv2D(256, kernel_size=(3, 3), activation='relu', padding='same', kernel_regularizer=l_2),
             BatchNormalization(),
 
-            Conv2D(256, kernel_size=(3, 3), activation='relu', kernel_regularizer=l_2),
+            Conv2D(256, kernel_size=(3, 3), activation='relu', kernel_regularizer=l_2, name='last_conv2d'),
             BatchNormalization(),
             MaxPooling2D(pool_size=(2, 2)),
             Dropout(0.4),

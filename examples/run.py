@@ -2,6 +2,7 @@ from clothing_classifier.loaders.mnist_loader import MNISTLoader
 from clothing_classifier.models.basline_classifier import BaseLineClassifier
 from clothing_classifier.models.classifier import Classifier
 from clothing_classifier.models.deeper_classifier import DeeperClassifier
+from clothing_classifier.utils.receptive_field_calculator import calculate_receptive_field
 
 from tensorflow.keras.optimizers import *
 from tensorflow.keras.utils import to_categorical
@@ -34,10 +35,13 @@ def main():
     epochs = 30
     valid_split = .2
 
-    # Model creation, of type BaseLineClassifier
+    # Model instantiation
     # model = BaseLineClassifier()
     model = Classifier()
     # model = DeeperClassifier()
+
+    # Model Receptive field report
+    overall_rf = calculate_receptive_field(model)
 
     # Register losses
     model.register_losses(['categorical_crossentropy'])
@@ -71,9 +75,10 @@ def main():
 
     print()
     print("Model Evaluation Results")
-    print("========================")
+    print("==============================================")
     print("Model loss : ", loss)
     print("Model accuracy : ", accuracy)
+    print("==============================================")
 
 
 if __name__ == '__main__':

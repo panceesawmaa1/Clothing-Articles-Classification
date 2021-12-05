@@ -16,7 +16,7 @@ class Classifier(BaseModel):
     """
 
     def __init__(self):
-        super().__init__()
+        super().__init__("classifier")
         self.accuracy = 0
         self.loss = 0
 
@@ -33,9 +33,9 @@ class Classifier(BaseModel):
         self.model: Sequential = Sequential([
 
             Conv2D(32, (5, 5), padding='same', input_shape=[28, 28, 1],
-                   activation='relu'),
+                   activation='relu', name='input_layer'),
             MaxPool2D((2, 2)),
-            Conv2D(64, (5, 5), padding='same', activation='relu'),
+            Conv2D(64, (5, 5), padding='same', activation='relu', name='last_conv2d'),
             MaxPool2D((2, 2)),
             Flatten(),
             Dropout(0.2),

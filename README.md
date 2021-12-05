@@ -10,7 +10,8 @@
 
 ### Description
 
-This repository contains the appropriate code for a simple Clothing Articles classifiers. Implemented models are trained
+This repository contains the appropriate code for simple Clothing Articles 
+classifiers. Implemented models are trained
 with ```fashion-mnist``` dataset.
 
 Loss function used:
@@ -20,17 +21,16 @@ Loss function used:
 Metric used:
 
 * ```accuracy```
- 
-  
 
 Models implemented:
 
 ### 1. ```BaseLineClassifier```
+
 A simple basline CNN classifier, consisting of 7 layers,
 ```Conv2D```, ```MaxPool2D```, ```Flatten``` and ```Dense``` layers. This model obtained **91.6%** testing accuracy
 after training with 30 epochs.
 
-  Model Summary:
+Model Summary:
 
 ```
 _________________________________________________________________
@@ -60,28 +60,41 @@ _________________________________________________________________
 
 **NOTE:**
 
->Convolutions - FLOPs = 2x Number of Kernel x Kernel Shape x Output Shape
+> Convolutions - FLOPs = 2x Number of Kernel x Kernel Shape x Output Shape
 
->Fully Connected Layers - FLOPs = 2x Input Size x Output Size
+> Fully Connected Layers - FLOPs = 2x Input Size x Output Size
 
->1 MAC = 2 FLOPs
+> 1 MAC = 2 FLOPs
 
 * Layer ```conv2d``` FLOps = 2 * 32 * 5 * 5 * 28 * 28 = 1,254,400 FLOPs
 * Layer ```conv2d_1``` FLOPs = 2 * 64 * 5 * 5 * 32 * 14 * 14 = 20,070,400 FLOPs
 * Layer ```dense``` FLOPs = 2 * 3136 * 1024 = 6,422,528 FLOPs
 * Layer ```output_layer``` FLOPs = 2 * 1024 * 10 = 20,480 FLOPs
 
-**This model performs 27,767,808 FLOPs (~27 MFLOPs), 13,883,904 MACs (~13 Mega-MACs) 
+**This model performs 27,767,808 FLOPs (~27 MFLOPs), 13,883,904 MACs (~13 Mega-MACs)
 for ```convolution``` and ```fully-connected``` layers only.**
 
+**Receptive Field Report:**
 
+```
+==============================================
+rf_x =  16
+rf_y =  16
+effective stride_x:  4
+effective stride_y:  4
+effective pad_x:  6
+effective pad_y:  6
+Model overall receptive field=  256
+==============================================
+```
 
 ### 2. ```Classifier```
+
 A simple CNN classifier with ```Dropout``` regularization, consisting of 9 layers,
 ```Conv2D```, ```MaxPool2D```, ```Flatten```, ```Dropout``` and ```Dense``` layers. This model obtained **92.5%**
 testing accuracy after training with 30 epochs.
 
-  Model Summary:
+Model Summary:
 
 ```
 _________________________________________________________________
@@ -116,28 +129,42 @@ _________________________________________________________________
 
 **NOTE:**
 
->Convolutions - FLOPs = 2x Number of Kernel x Kernel Shape x Output Shape
+> Convolutions - FLOPs = 2x Number of Kernel x Kernel Shape x Output Shape
 
->Fully Connected Layers - FLOPs = 2x Input Size x Output Size
+> Fully Connected Layers - FLOPs = 2x Input Size x Output Size
 
->1 MAC = 2 FLOPs
+> 1 MAC = 2 FLOPs
 
 * Layer ```conv2d``` FLOps = 2 * 32 * 5 * 5 * 28 * 28 = 1,254,400 FLOPs
 * Layer ```conv2d_1``` FLOPs = 2 * 64 * 5 * 5 * 32 * 14 * 14 = 20,070,400 FLOPs
 * Layer ```dense``` FLOPs = 2 * 3136 * 1024 = 6,422,528 FLOPs
 * Layer ```output_layer``` FLOPs = 2 * 1024 * 10 = 20,480 FLOPs
 
-**This model performs 27,767,808 FLOPs (~27 MFLOPs), 13,883,904 MACs (~13 Mega-MACs) 
+**This model performs 27,767,808 FLOPs (~27 MFLOPs), 13,883,904 MACs (~13 Mega-MACs)
 for ```convolution``` and ```fully-connected``` layers only.**
 
+**Receptive Field Report:**
+
+```
+==============================================
+rf_x =  16
+rf_y =  16
+effective stride_x:  4
+effective stride_y:  4
+effective pad_x:  6
+effective pad_y:  6
+Model overall receptive field=  256
+==============================================
+```
 
 ### 3. ```DeeperClassifier```
-   A deeper CNN classifier with ```Dropout``` and ```l2```
-  regularizations, consisting of 24 layers,
-  ```Conv2D```, ```MaxPool2D```, ```BatchNormalization```, ```Flatten```,
-  ```Dropout``` and ```Dense``` layers. This model obtained **93.15%** testing accuracy after training with 30 epochs.
 
-  Model Summary:
+A deeper CNN classifier with ```Dropout``` and ```l2```
+regularizations, consisting of 24 layers,
+```Conv2D```, ```MaxPool2D```, ```BatchNormalization```, ```Flatten```,
+```Dropout``` and ```Dense``` layers. This model obtained **93.15%** testing accuracy after training with 30 epochs.
+
+Model Summary:
 
 ```
 _________________________________________________________________
@@ -201,38 +228,50 @@ _________________________________________________________________
 
 **NOTE:**
 
->Convolutions - FLOPs = 2x Number of Kernel x Kernel Shape x Output Shape
+> Convolutions - FLOPs = 2x Number of Kernel x Kernel Shape x Output Shape
 
->Fully Connected Layers - FLOPs = 2x Input Size x Output Size
+> Fully Connected Layers - FLOPs = 2x Input Size x Output Size
 
->1 MAC = 2 FLOPs
+> 1 MAC = 2 FLOPs
 
 * Layer ```conv2d``` FLOps = 2 * 64 * 3 * 3 * 28 * 28 = 778,752 FLOPs
-* Layer ```conv2d_1``` FLOPs = 2 * 64 * 3 * 3 * 64 * 26 * 26 =  49,840,128 FLOPs
+* Layer ```conv2d_1``` FLOPs = 2 * 64 * 3 * 3 * 64 * 26 * 26 = 49,840,128 FLOPs
 * Layer ```conv2d_2``` FLOPs = 2 * 128 * 3 * 3 * 64 * 13 * 13 = 24,920,064 FLOPs
 * Layer ```conv2d_3``` FLOPs = 2 * 128 * 3 * 3 * 128 * 11 * 11 = 35,684,352 FLOPs
-* Layer ```conv2d_4``` FLOPs = 2 * 256 * 3 * 3 * 128 * 5 * 5 =  14,745,600 FLOPs
+* Layer ```conv2d_4``` FLOPs = 2 * 256 * 3 * 3 * 128 * 5 * 5 = 14,745,600 FLOPs
 * Layer ```conv2d_5``` FLOPs = 2 * 256 * 3 * 3 * 256 * 3 * 3 = 10,616,832 FLOPs
 * Layer ```dense``` FLOPs = 2 * 256 * 1024 = 524,288 FLOPs
 * Layer ```dense_1``` FLOPs = 2 * 1024 * 512 = 1,048,576 FLOPs
 * Layer ```output_layer``` FLOPs = 2 * 512 * 10 = 10,240 FLOPs
 
-**This model performs  138,168,832 FLOPs (~132 MFLOPs), 69,084,416 MACs (~66 Mega-MACs)
+**This model performs 138,168,832 FLOPs (~132 MFLOPs), 69,084,416 MACs (~66 Mega-MACs)
 for ```convolution``` and ```fully-connected``` layers only.**
 
+**Receptive Field Report:**
+
+```
+==============================================
+rf_x =  36
+rf_y =  36
+effective stride_x:  8
+effective stride_y:  8
+effective pad_x:  7
+effective pad_y:  7
+Model overall receptive field=  1296
+==============================================
+```
+
 #### Conclusion
-  
-* Increasing the model size represented in ```DeeperClassifier``` made the model perform 
-  ~5x FLOPs (for ```convolution``` and ```fully-connected``` layers only) more than model
-  represented in ```Classifier``` (which is less deep) where ```DeeperClassifier``` performs 
-  +0.65% better than ```Classifier``` in terms of testing accuracy. We can go with the
-  simpler model to decrease number of FLOPs performed by the model, especially 
-  that the accuracy enhancement is not that much significant.
- 
-* The ```convolution``` layers are more expensive than ```fully-connected``` ones
-from this experiment.
 
+* Increasing the model layers represented in ```DeeperClassifier``` made the model perform
+  ~5x FLOPs (for ```convolution``` and ```fully-connected``` layers only) more than model represented
+  in ```Classifier``` (which is less deep) where ```DeeperClassifier``` performs +0.65% better than ```Classifier``` in
+  terms of testing accuracy. We can go with the simpler model to decrease number of FLOPs performed by the model,
+  especially that the accuracy enhancement is not that much significant.
 
+* The ```convolution``` layers are more expensive than ```fully-connected``` ones from this experiment.
+
+* By making the model more deep, the receptive field increases.
 
 ### Minimum Requirements
 
@@ -240,7 +279,17 @@ from this experiment.
 
 ### Setup Instructions
 
-* Clone the repository.
+* Clone the repository, by running the following command:
+  ```shell
+  $ git clone https://github.com/panceesawmaa1/Clothing-Articles-Classification.git
+  $ git submodule init
+  $ git submodule update
+  ```
+
+* Change your current directory to the project directory:
+  ```shell
+  $ cd clothing-articles-classification/ 
+  ```
 
 * Download Fashion-MNIST dataset by running the following commands:
   ```shell

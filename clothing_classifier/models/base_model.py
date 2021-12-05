@@ -12,10 +12,18 @@ class BaseModel(ABC):
     implements its methods.
     """
 
-    def __init__(self):
+    def __init__(self, string: str):
+        self.string = string
         self.callbacks = []
         self.metrics = []
         self.losses = []
+
+    def __str__(self):
+        """
+        This function returns a string representing the concrete type of the model.
+        :return: string: str
+        """
+        return self.string
 
     def register_callbacks(self, callbacks) -> None:
         """
