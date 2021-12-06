@@ -37,8 +37,8 @@ def main():
 
     # Model instantiation
     # model = BaseLineClassifier()
-    model = Classifier()
-    # model = DeeperClassifier()
+    # model = Classifier()
+    model = DeeperClassifier()
 
     # Model Receptive field report
     overall_rf = calculate_receptive_field(model)

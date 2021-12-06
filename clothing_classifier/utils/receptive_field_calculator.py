@@ -30,13 +30,13 @@ def calculate_receptive_field(model: BaseModel):
     print("Receptive field report:")
     print("==============================================")
 
-    print("rf_x = ", rf_x)
-    print("rf_y = ", rf_y)
-    print("effective stride_x: ", eff_stride_x)
-    print("effective stride_y: ", eff_stride_y)
-    print("effective pad_x: ", eff_pad_x)
-    print("effective pad_y: ", eff_pad_y)
-    print("Model overall receptive field= ", rf_x * rf_y)
+    print("Receptive field size (horizontal) = ", rf_x)
+    print("Receptive field size (vertical) = ", rf_y)
+    print("Effective stride (horizontal) = ", eff_stride_x)
+    print("Effective stride (vertical) = ", eff_stride_y)
+    print("Effective padding (horizontal) = ", eff_pad_x)
+    print("Effective padding (vertical) = ", eff_pad_y)
+
     print("==============================================")
 
-    return rf_x * rf_y
+    return rf_x

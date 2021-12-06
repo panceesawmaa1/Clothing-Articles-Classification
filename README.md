@@ -78,13 +78,12 @@ for ```convolution``` and ```fully-connected``` layers only.**
 
 ```
 ==============================================
-rf_x =  16
-rf_y =  16
-effective stride_x:  4
-effective stride_y:  4
-effective pad_x:  6
-effective pad_y:  6
-Model overall receptive field=  256
+Receptive field size (horizontal) =  16
+Receptive field size (vertical) =  16
+Effective stride (horizontal) =  4
+Effective stride (vertical) =  4
+Effective padding (horizontal) =  6
+Effective padding (vertical) =  6
 ==============================================
 ```
 
@@ -147,13 +146,12 @@ for ```convolution``` and ```fully-connected``` layers only.**
 
 ```
 ==============================================
-rf_x =  16
-rf_y =  16
-effective stride_x:  4
-effective stride_y:  4
-effective pad_x:  6
-effective pad_y:  6
-Model overall receptive field=  256
+Receptive field size (horizontal) =  16
+Receptive field size (vertical) =  16
+Effective stride (horizontal) =  4
+Effective stride (vertical) =  4
+Effective padding (horizontal) =  6
+Effective padding (vertical) =  6
 ==============================================
 ```
 
@@ -251,13 +249,12 @@ for ```convolution``` and ```fully-connected``` layers only.**
 
 ```
 ==============================================
-rf_x =  36
-rf_y =  36
-effective stride_x:  8
-effective stride_y:  8
-effective pad_x:  7
-effective pad_y:  7
-Model overall receptive field=  1296
+Receptive field size (horizontal) =  36
+Receptive field size (vertical) =  36
+Effective stride (horizontal) =  8
+Effective stride (vertical) =  8
+Effective padding (horizontal) =  7
+Effective padding (vertical) =  7
 ==============================================
 ```
 
